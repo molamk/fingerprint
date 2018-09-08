@@ -1,0 +1,21 @@
+{
+  "name": "fingerprint",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node .",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "cors": "^2.8.4",
+    "express": "^4.16.3",
+    "express-useragent": "^1.0.12",
+    "mongoose": "^5.2.13",
+    "node-fetch": "^2.2.0"
+  }
+}
