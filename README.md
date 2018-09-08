@@ -2,7 +2,7 @@
 
 ## Goal
 
-Write a basic tracker based on a browser's fingerprint, IP address and user agent. The tracker is very lightweight with only 70 lines of code! (180 if we want to store the [collected data](./database.js)).
+Write a basic tracker based on a **browser's fingerprint, IP address and user agent**. The tracker is **very lightweight** with only **70 lines** of code! (180 if we want to store the [collected data](./database.js)).
 
 ## Motivation
 
