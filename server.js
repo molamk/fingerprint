@@ -4,7 +4,7 @@ const userAgent = require('express-useragent');
 const cors = require('cors');
 const fetch = require('node-fetch');
 const mongoose = require('mongoose');
-const Fingerprint = require('./db');
+const Fingerprint = require('./database');
 
 const app = express();
 app.use(bodyParser.json());
@@ -12,7 +12,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.set("port", 3000);
 app.set("trust proxy", true);
 app.use(userAgent.express());
-app.use(express.static('static'))
+app.use(express.static('.'))
 app.use(cors());
 
 app.post('/fp', (req, res) => {
