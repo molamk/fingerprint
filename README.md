@@ -6,7 +6,7 @@ Write a basic tracker based on a **browser's fingerprint, IP address and user ag
 
 ## Motivation
 
-> By gathering that information together and storing it on its own servers, a site can track your browsing habits without the use of persistent identifiers stored on your computer, like cookies. Fingerprinting can also be used to recreate a tracking cookie for a user after the user has deleted it. Users that are aware of cookies can remove them within their browser settings, but fingerprinting subverts the built-in browser mechanisms that allow users to avoid being tracked. ([EFF](https://www.eff.org/deeplinks/2018/06/gdpr-and-browser-fingerprinting-how-it-changes-game-sneakiest-web-trackers))
+> By gathering that information together and storing it on its own servers, a site can track your browsing habits without the use of persistent identifiers stored on your computer, like cookies. Fingerprinting can also be used to recreate a tracking cookie for a user after the user has deleted it. Users that are aware of cookies can remove them within their browser settings, but fingerprinting subverts the built-in browser mechanisms that allow users to avoid being tracked. ([EFF | The GDPR and Browser Fingerprinting: How It Changes the Game for the Sneakiest Web Trackers](https://www.eff.org/deeplinks/2018/06/gdpr-and-browser-fingerprinting-how-it-changes-game-sneakiest-web-trackers))
 
 ## Try it
 
