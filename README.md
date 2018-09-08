@@ -1,5 +1,18 @@
 # How to build a sneaky fingerprint tracker?
 
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+
+## Table of contents
+
+- [Goal](#goal)
+- [Motivation](#motivation)
+- [Try it](#try-it)
+- [How it works](#how-it-works)
+- [Tools](#tools)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
 ## Goal
 
 Write a basic tracker based on a **browser's fingerprint, IP address and user agent**. The tracker is **very lightweight** with only **70 lines** of code! (180 if we want to store the [collected data](./database.js)).
@@ -27,19 +40,20 @@ open proof.html
 ```
 
 ## How it works
+
 1. The browser requests `injectable.js` from our server
 1. The server serves up `injectable.js`
 1. Once on the browser, `injectable.js` does the following:
-    1. Extract the browser's fingerprint using [fingerprintjs2](https://github.com/Valve/fingerprintjs2)
-    1. Collect the user's IP address & metadata (ex: location) from an AJAX call to [Extreme IP lookup](https://extreme-ip-lookup.com/)
-    1. Sends the collected data to our server
+   1. Extract the browser's fingerprint using [fingerprintjs2](https://github.com/Valve/fingerprintjs2)
+   1. Collect the user's IP address & metadata (ex: location) from an AJAX call to [Extreme IP lookup](https://extreme-ip-lookup.com/)
+   1. Sends the collected data to our server
 1. Server picks up the request, then:
-    1. Extract the user agent
-    1. Bundle the browser's fingerprint, the user agent and IP data into an object
-    1. Generate a hash of the object
-    1. Tries to store the fingerprint into Mongodb. We then have two scenarios:
-        1. The fingerprint is new: Store it
-        1. The fingerprint is already stored: Log the domain on which it has been detected
+   1. Extract the user agent
+   1. Bundle the browser's fingerprint, the user agent and IP data into an object
+   1. Generate a hash of the object
+   1. Tries to store the fingerprint into Mongodb. We then have two scenarios:
+      1. The fingerprint is new: Store it
+      1. The fingerprint is already stored: Log the domain on which it has been detected
 
 ## Tools
 
