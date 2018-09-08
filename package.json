@@ -15,7 +15,6 @@
     "cors": "^2.8.4",
     "express": "^4.16.3",
     "express-useragent": "^1.0.12",
-    "mongoose": "^5.2.13",
-    "node-fetch": "^2.2.0"
+    "mongoose": "^5.2.13"
   }
 }
