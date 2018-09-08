@@ -1,4 +1,4 @@
-# How to build a **sneaky** fingerprint **tracker**?
+# How to build a sneaky fingerprint tracker?
 
 ## Goal
 
