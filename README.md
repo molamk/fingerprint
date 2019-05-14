@@ -1,68 +1,56 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Sneaky fingerprint and IP address tracker
 
-## Available Scripts
+This is a small React app to demonstrate how to collect a [device's fingerprint](https://en.wikipedia.org/wiki/Device_fingerprint) and [IP address](https://en.wikipedia.org/wiki/IP_address) metadata. The app **runs entirely in the browser**, so **no data is being collected**. It uses:
 
-In the project directory, you can run:
+- [Fingerprintjs2](https://github.com/Valve/fingerprintjs2) to collect the fingerprint. This will gives us the device's platform, RAM, number of cores and other juicy info.
+- The [Extreme IP Lookup](https://extreme-ip-lookup.com/) API to get the IP address metadata. This provides info such as the device's location, ISP, etc...
+- [React Hooks](https://reactjs.org/docs/hooks-overview.html) to manage the application's state while minimizing boilerplate. Since we're going for a light-weight approach, we'll favor this option over something like Redux.
 
-### `npm start`
+## Motivation
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+> By gathering that information together and storing it on its own servers, a site can track your browsing habits without the use of persistent identifiers stored on your computer, like cookies. Fingerprinting can also be used to recreate a tracking cookie for a user after the user has deleted it. Users that are aware of cookies can remove them within their browser settings, but fingerprinting subverts the built-in browser mechanisms that allow users to avoid being tracked. [(EFF | The GDPR and Browser Fingerprinting: How It Changes the Game for the Sneakiest Web Trackers)](https://www.eff.org/deeplinks/2018/06/gdpr-and-browser-fingerprinting-how-it-changes-game-sneakiest-web-trackers).
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+## Try it
 
-### `npm test`
+```bash
+git clone git@github.com:molamk/fingerprint.git
+cd fingerprint
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+yarn install
+yarn start
+```
 
-### `npm run build`
+## How it works
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Getting the device's fingerprint
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+To get the fingerprint we'll use the `get` function of `Fingerprintjs2`. It will look like this
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```js
+import fp from "fingerprintjs2";
 
-### `npm run eject`
+// We re-write the callback into a Promise style,
+// this will help us plug the function more easily
+// with React Hooks
+export const getFingerprint = () =>
+  new Promise(resolve => {
+    fp.get(components => {
+      resolve(components);
+    });
+  });
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+```
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Getting the IP address metadata
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+We'll use a standard HTTP GET request to the `extreme-ip-lookup` REST API. We'll also specify that we want `json` as the returning response format.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+```js
+// Standard HTTP GET using "fetch"
+fetch("https://extreme-ip-lookup.com/json")
+  .then(res => res.json())
+```
 
-## Learn More
+## Note
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+While this app **does not store any collected info**, it would be very easy to extend it and give it storage capabilities. For that we'll only need a server that exposes an endpoint to receive the already collected data. Then the server can store the info in a database like MongoDB or other.
