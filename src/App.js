@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import "./App.css";
 import DataTable from "./dataTable";
 import { cleanData, getFingerprint } from "./utils";
+import { Helmet } from "react-helmet";
 
 function App() {
   const [fingerprint, setFingerprint] = useState(null);
@@ -33,6 +34,17 @@ function App() {
 
   return (
     <div>
+      <Helmet>
+        <title>Seanky fingerprint and IP tracker | molamk</title>
+        <meta
+          name="description"
+          content="Small React app to collect a device's fingerprint and IP address metadata"
+        />
+        <meta
+          name="keywords"
+          cpntent="fingerprint,ip-address,tracker,react,privacy"
+        />
+      </Helmet>
       <header>
         <section>
           <h1>Fingerprint &amp; IP tracker</h1>

@@ -6,6 +6,10 @@ This is a small React app to demonstrate how to collect a [device's fingerprint]
 - The [Extreme IP Lookup](https://extreme-ip-lookup.com/) API to get the IP address metadata. This provides info such as the device's location, ISP, etc...
 - [React Hooks](https://reactjs.org/docs/hooks-overview.html) to manage the application's state while minimizing boilerplate. Since we're going for a light-weight approach, we'll favor this option over something like Redux.
 
+## Demo link on [Netlify](https://www.netlify.com)
+
+[https://fingerprint-ip-tracker.netlify.com](https://fingerprint-ip-tracker.netlify.com)
+
 ## Motivation
 
 > By gathering that information together and storing it on its own servers, a site can track your browsing habits without the use of persistent identifiers stored on your computer, like cookies. Fingerprinting can also be used to recreate a tracking cookie for a user after the user has deleted it. Users that are aware of cookies can remove them within their browser settings, but fingerprinting subverts the built-in browser mechanisms that allow users to avoid being tracked. [(EFF | The GDPR and Browser Fingerprinting: How It Changes the Game for the Sneakiest Web Trackers)](https://www.eff.org/deeplinks/2018/06/gdpr-and-browser-fingerprinting-how-it-changes-game-sneakiest-web-trackers).
