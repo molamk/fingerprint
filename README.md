@@ -133,6 +133,6 @@ yarn install
 yarn start
 ```
 
-## Demo link on [Netlify](https://www.netlify.com)
+## Live Demo link
 
-[https://fingerprint-ip-tracker.netlify.com](https://fingerprint-ip-tracker.netlify.com)
+[https://fingerprint.molamk.com](https://fingerprint.molamk.com)
