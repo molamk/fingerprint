@@ -1,6 +1,11 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto+Mono:400,700&display=swap');
+
+* {
+    font-family: 'Roboto Mono', monospace;
+}
+
 html,
 body {
-    font-family: 'Roboto Mono', monospace;
     font-size: 16px;
     height: 100%;
     width: 100%;
@@ -37,7 +42,6 @@ thead td {
 td {
     padding: .8em 24px;
     font-size: small;
-    font-family: 'Roboto Mono', monospace;
     text-transform: capitalize;
 }
 

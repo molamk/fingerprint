@@ -67,17 +67,18 @@ function App() {
           <DataTable title="Fingerprint" data={fingerprint} />
         </div>
       ) : (
-        <section>
-          <h2>Please wait...</h2>
-        </section>
-      )}
+          <section>
+            <h2>Please wait...</h2>
+          </section>
+        )}
       <footer>
         <p>
           Made by{" "}
           <a
+            style={{ fontWeight: 'bold' }}
             target="_blank"
             rel="noopener noreferrer"
-            href="https://molamk.github.io"
+            href="https://molamk.com"
           >
             molamk
           </a>
