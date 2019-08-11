@@ -47,7 +47,11 @@ function App() {
       </Helmet>
       <header>
         <section>
-          <h1>Fingerprint &amp; IP tracker</h1>
+          <h1>
+            <a target='_blank' rel='noreferrer noopener' href='https://molamk.com/fingerprint'>
+              Sneaky Fingerprint And IP Address Tracker
+            </a>
+          </h1>
           <p>
             This project is for educational purposes only. No data is being
             stored.
